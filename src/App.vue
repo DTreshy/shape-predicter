@@ -21,8 +21,8 @@
             </v-col>
         </v-row>
       <v-container id="buttonContainer">
-        <PredictButton/>
-        <ClearButton/>
+        <PredictButton class="mr-12"/>
+        <ClearButton class="ml-12"/>
       </v-container>
     </v-main>
     <v-footer color="white">
