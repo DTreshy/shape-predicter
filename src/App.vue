@@ -5,12 +5,12 @@
         <h1 class="primarycolor"> Shape Predicter </h1>
       </div>
     </v-app-bar>
-    <v-main class="margin">
+    <v-main class="ma-16">
         <v-row>
-            <v-col>
+            <v-col class="col-5">
               <Canvas/>
             </v-col>
-            <v-col class="flex-column d-flex text-h3">
+            <v-col class="flex-column d-flex text-h3 col-7">
               <v-row class="primarycolor">
                 <h2 class="ma-auto "> {{ prediction }} </h2>
               </v-row>
@@ -21,8 +21,8 @@
             </v-col>
         </v-row>
       <v-container id="buttonContainer">
-        <PredictButton class="mr-12"/>
-        <ClearButton class="ml-12"/>
+        <PredictButton class="mr-14"/>
+        <ClearButton class="ml-14"/>
       </v-container>
     </v-main>
     <v-footer color="white">
@@ -76,9 +76,9 @@ export default {
 </script>
 
 <style>
-.margin{
-  margin: auto 5%
-}
+  body {
+    overflow: hidden; /* Hide scrollbars */
+  }
   #buttonContainer{
     text-align: center;
   }

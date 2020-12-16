@@ -1,5 +1,5 @@
 <template>
-    <v-btn id="predictButton" class="button" x-large min-width="150" color="primary" outlined @click="predict">
+    <v-btn id="predictButton" class="button" x-large min-width="160" color="primary" outlined @click="predict">
         <v-icon> {{ svgSend }} </v-icon>
         <v-spacer/>
         Predict

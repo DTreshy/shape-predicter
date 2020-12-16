@@ -1,5 +1,5 @@
 <template>
-    <v-btn id="clearButton" class="button" x-large min-width="150" color="secondary" outlined>
+    <v-btn id="clearButton" class="button" x-large min-width="160" color="secondary" outlined>
         <v-icon> {{ svgEraser }} </v-icon>
         <v-spacer/>
         Clear
