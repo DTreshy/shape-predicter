@@ -36,7 +36,7 @@
                 const image = this.dataURLtoFile(imageUrl, 'image.jpg')
                 const data = new FormData()
                 data.append('image', image, image.name)
-                const response = await this.$axios.post('http://127.0.0.1:5000', data, {
+                const response = await this.$axios.post('https://predicter.dsprojects.pl', data, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     },
@@ -44,7 +44,7 @@
                 console.log(response)
                 this.$store.commit('setResponse', {
                     prediction: response['data']['prediction'],
-                    probability: response['data']['probability'] + '%'
+                    probability: response['data']['propability'] + '%'
                 })
                 console.log(this.$store.getters.getPrediction)
                 console.log(this.$store.getters.getProbability)

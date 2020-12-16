@@ -5,8 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    prediction: 'Triangle',
-    probability: '98.9%',
+    prediction: 'Figure',
+    probability: 'Percent',
   },
   mutations: {
     setResponse(state, payload) {
@@ -14,8 +14,8 @@ export default new Vuex.Store({
       state.probability = payload.probability
     },
     clearResponse(state) {
-      state.prediction = ''
-      state.probability = ''
+      state.prediction = 'Figure'
+      state.probability = 'Percent'
     }
   },
   actions: {},

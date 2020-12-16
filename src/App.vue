@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar color="white" class="v-app-bar--hide-shadow">
-      <div class="ma-auto">
+      <div class="ma-auto text-h1">
         <h1 class="primarycolor"> Shape Predicter </h1>
       </div>
     </v-app-bar>
@@ -10,12 +10,13 @@
             <v-col>
               <Canvas/>
             </v-col>
-            <v-col class="flex-column align">
-              <v-row class="primarycolor ma-auto">
-                <h2 class="automargin"> {{ prediction }} </h2>
+            <v-col class="flex-column d-flex text-h3">
+              <v-row class="primarycolor">
+                <h2 class="ma-auto "> {{ prediction }} </h2>
               </v-row>
-              <v-row class="primarycolor ma-auto">
-                <h2 class="automargin"> {{ probability }} </h2>
+              <v-divider class="secondary"> vertical </v-divider>
+              <v-row class="primarycolor ">
+                <h2 class="ma-auto"> {{ probability }} </h2>
               </v-row>
             </v-col>
         </v-row>
@@ -25,11 +26,19 @@
       </v-container>
     </v-main>
     <v-footer color="white">
-      <h2> Used Technologies </h2>
-      <v-icon color="dark" :size='iconSize'> {{ svgVue }} </v-icon>
-      <v-icon color="dark" :size='iconSize'> {{ svgPython }} </v-icon>
-      <v-icon color="dark" :size='iconSize'> {{ svgVuetify }} </v-icon>
-      <v-icon color="dark" :size='iconSize'> {{ svgDocker }} </v-icon>
+      <v-spacer/>
+      <v-icon color="secondary" size=60> {{ svgVue }} </v-icon>
+      <v-spacer/>
+      <v-icon color="secondary" size=60> {{ svgPython }} </v-icon>
+      <v-spacer/>
+      <v-icon color="secondary" size=60> {{ svgVuetify }} </v-icon>
+      <v-spacer/>
+      <v-icon color="secondary" size=60> {{ svgDocker }} </v-icon>
+      <v-spacer/>
+      <img src="@/assets/p5js.svg" height='40' alt="p5.js logo">
+      <v-spacer/>
+      <img src="@/assets/tensorflow.svg" height='70' alt="Tensorflow logo">
+      <v-spacer/>
     </v-footer>
   </v-app>
 </template>
@@ -53,8 +62,7 @@ export default {
     svgVue: mdiVuejs,
     svgPython: mdiLanguagePython,
     svgVuetify: mdiVuetify,
-    svgDocker: mdiDocker,
-    iconSize: 70
+    svgDocker: mdiDocker
   }),
   computed: {
     probability () {
@@ -79,8 +87,5 @@ export default {
   }
   .primarycolor{
     color: #283593;
-  }
-  .button{
-    margin: 60px 30px 60px 30px
   }
 </style>
