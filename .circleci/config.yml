@@ -1,0 +1,50 @@
+version: 2.1
+orbs:
+  docker: circleci/docker@1.5.0
+  node: circleci/node@4.1.0
+workflows:
+  build-deploy:
+    jobs:
+      - build:
+          context:
+            - docker
+      - deploy:
+          context:
+            - docker
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:lts
+        auth:
+          username: $DOCKERHUB_LOGIN
+          password: $DOCKER_PASSWORD
+        environment:
+          NODE_ENV: test
+    steps:
+      - checkout
+      - node/install:
+          install-npm: false
+      - node/install-packages:
+          override-ci-command: npm install
+  deploy:
+    machine: true
+    steps:
+      - checkout
+      - docker/install-docker-tools
+      - run:
+          name: Login to Docker
+          command: docker login -u=$DOCKER_LOGIN -p=$DOCKER_PASSWORD registry.dsprojects.pl
+      - docker/build:
+          image: shape-predicter
+          registry: registry.dsprojects.pl
+          tag: latest
+      - docker/push:
+          image: shape-predicter
+          registry: registry.dsprojects.pl
+          tag: latest
