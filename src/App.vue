@@ -1,22 +1,24 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary">
-      <div class="d-flex align-center">
-        <h1> Shape Predicter </h1>
+    <v-app-bar color="white" class="v-app-bar--hide-shadow">
+      <div class="ma-auto">
+        <h1 class="primarycolor"> Shape Predicter </h1>
       </div>
     </v-app-bar>
-    <v-main>
-      <v-col>
-        <Canvas/>
-      </v-col>
-      <v-col>
+    <v-main class="margin">
         <v-row>
-          <h2> {{ prediction }} </h2>
+            <v-col>
+              <Canvas/>
+            </v-col>
+            <v-col class="flex-column align">
+              <v-row class="primarycolor ma-auto">
+                <h2 class="automargin"> {{ prediction }} </h2>
+              </v-row>
+              <v-row class="primarycolor ma-auto">
+                <h2 class="automargin"> {{ probability }} </h2>
+              </v-row>
+            </v-col>
         </v-row>
-        <v-row>
-          <h2> {{ probability }} </h2>
-        </v-row>
-      </v-col>
       <v-container id="buttonContainer">
         <PredictButton/>
         <ClearButton/>
@@ -66,13 +68,17 @@ export default {
 </script>
 
 <style>
+.margin{
+  margin: auto 5%
+}
   #buttonContainer{
     text-align: center;
   }
   h1{
-    color: white;
-    font-size: 40px;
-    margin-right: 10px;
+    font-size: 42px;
+  }
+  .primarycolor{
+    color: #283593;
   }
   .button{
     margin: 60px 30px 60px 30px
