@@ -1,9 +1,19 @@
 <template>
-    <v-btn id="predictButton" class="button" x-large min-width="160" color="primary" outlined @click="predict">
+  <v-hover v-slot=" { hover } ">
+    <v-btn
+        id="predictButton"
+        class="transition-ease-in-out"
+        :outlined='hover ? 0 : 1'
+        x-large
+        min-width="160"
+        color="primary"
+        :elevation="hover ? 20 : 5"
+        @click="predict">
         <v-icon> {{ svgSend }} </v-icon>
         <v-spacer/>
         Predict
     </v-btn>
+  </v-hover>
 </template>
 
 <script>
